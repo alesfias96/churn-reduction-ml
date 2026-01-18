@@ -1,7 +1,10 @@
-pandas
 numpy
+pandas
 scikit-learn
 matplotlib
-jupyter
-psycopg2-binary
-sqlalchemy
+seaborn
+pyarrow
+joblib
+shap
+xgboost
+lightgbm

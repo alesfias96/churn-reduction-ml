@@ -1,46 +1,73 @@
-# CHURN REDUCTION ML
+# Subscription Churn Reduction (End-to-End Data Science)
 
-End-to-end churn analysis and prediction project.
-Goal: identify customers at risk of churn, understand churn drivers, and provide actionable insights
-to improve customer retention.
+An end-to-end, **international** Data Science project that predicts **subscription churn** and turns model outputs into **business actions**.
 
-## Goals
-- Create a churn dataset from raw customer/activity data
-- Perform SQL analytics to build reliable features
-- Train a churn prediction model
-- Interpret model results (main churn drivers)
-- Deliver an actionable output (risk list + key insights)
+This repository uses a **realistic synthetic dataset** (no sensitive data) and demonstrates the full workflow:
 
-## Planned pipeline
-1. Data model definition (customers, transactions, interactions)
-2. SQL-based feature engineering (RFM metrics, usage patterns, tickets, etc.)
-3. EDA and validation checks
-4. Baseline churn model (LogReg / RandomForest / XGBoost)
-5. Evaluation (F1, ROC-AUC, precision/recall tradeoff)
-6. Explainability (feature importance / SHAP)
-7. Final business-style report
+- Synthetic data generation
+- SQL analytics (SQLite)
+- Data validation & cleaning
+- EDA & KPI analysis
+- Feature engineering
+- Machine Learning (baseline + boosted model)
+- Threshold optimization (cost-based decision)
+- Model interpretability (SHAP)
+- Final report with business recommendations
 
-## Tech stack
-- SQL (PostgreSQL)
-- Python (Pandas, NumPy)
-- scikit-learn
-- Jupyter Notebooks
+## Quickstart
 
-## Project structure
-```text
-churn-reduction-ml/
-  sql/                  # schema.sql + queries.sql
-  notebooks/
-  src/
-  data/                 # empty (dataset not included)
-  reports/
-  README.md
-  requirements.txt
+### 1) Create environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # (Windows: .venv\\Scripts\\activate)
+pip install -r requirements.txt
 ```
 
-## Status
-Work in progress.
+### 2) Run the full pipeline
 
-## Output (planned)
-- A table/list of customers ranked by churn risk
-- Summary of churn drivers with suggested retention actions
+```bash
+python main.py
+```
+
+Artifacts will be saved to:
+- `data/synthetic/subscription_churn_synthetic.csv`
+- `data/processed/processed_dataset.csv`
+- `sql/subscription_churn.db`
+- `models/` (trained models)
+- `reports/` (figures + report)
+
+## Project structure
+
+```
+churn-reduction-end-to-end/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── synthetic/
+├── models/
+├── notebooks/
+├── reports/
+│   └── figures/
+├── sql/
+├── src/
+│   ├── config.py
+│   ├── data_generation.py
+│   ├── data_validation.py
+│   ├── sql_pipeline.py
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── thresholding.py
+│   └── explain.py
+├── requirements.txt
+├── main.py
+└── LICENSE
+```
+
+## Notes
+
+- This dataset is synthetic but engineered to mimic real churn drivers (engagement decline, support friction, payment issues, refund behavior, pricing sensitivity).
+- The pipeline avoids data leakage and uses proper train/validation/test evaluation.
+
