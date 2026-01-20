@@ -40,7 +40,7 @@ Artifacts will be saved to:
 ## Project structure
 
 ```
-churn-reduction-end-to-end/
+churn-reduction-ml/
 ├── data/
 │   ├── raw/
 │   ├── processed/
